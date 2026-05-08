@@ -11,7 +11,7 @@
     color: #ffffff;
     font-family: "游明朝", serif;
     height: 100vh;
-    overflow: hidden; /* ← ページ全体スクロール禁止（正しい） */
+    overflow: hidden;
     position: relative;
   }
 
@@ -37,23 +37,13 @@
     100% { transform: translateX(110%) translateY(50vh); }
   }
 
-  .poem {
-    position: absolute;
-    bottom: 5vh;
-    left: 6vw;
-    font-size: 1.4rem;
-    background: rgba(0, 0, 0, 0.22);
-    padding: 1rem;
-    border-left: 4px solid #aaa;
-  }
-
   .text-block {
     position: absolute;
-    top: 45vh;              /* ← 上の位置は固定 */
+    top: 30vh;              
     left: 5vw;
     right: 5vw;
-    height: calc(100vh - 45vh - 6vh); 
-    /* ↑ これが重要：画面の残り高さを自動計算して内部スクロールを安定させる */
+
+    height: calc(100vh - 30vh - 6vh);
 
     overflow-y: scroll;
     background: rgba(0,0,0,0.15);
@@ -122,7 +112,7 @@
 　　　誰が追ってきても不思議ではない、あの人以外は  
 薄あかり雨でも霧でもなくなにか激しく降りたる空の色なり  
 
-　　　　　夜明けの公園  
+　　　夜明けの公園  
 白深き空へ自ら極まれる葉の色なれば落つるしかなし  
 冬の日の光が枝を爪弾ひて木の絶頂の記憶を鳴らす  
 包なき心が今日は歌声を催しはじめ歩めば軽ろし  
