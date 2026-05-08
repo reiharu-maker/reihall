@@ -50,25 +50,45 @@ h1 {
     color: #777;
     text-align: right;
 }
+
+/* ページめくり風アニメーション */
+.page {
+    animation: pageturn 0.6s ease;
+    transform-origin: left center;
+}
+
+@keyframes pageturn {
+    0% {
+        transform: rotateY(-12deg);
+        opacity: 0;
+        box-shadow: -40px 0 40px rgba(0,0,0,0.2);
+    }
+    100% {
+        transform: rotateY(0deg);
+        opacity: 1;
+        box-shadow: none;
+    }
+}
 </style>
 </head>
 <body>
 
 <a href="../books.html" class="backlink">← 本棚に戻る</a>
 
-<h1>Book 1（作品タイトル）</h1>
+<div class="page">
+    <h1>Book 1（作品タイトル）</h1>
 
-<div class="content">
+    <div class="content">
 ここに作品本文を入れる。
 
 複数行でもそのまま整形されて表示されます。
 改行も反映されます。
-</div>
+    </div>
 
-<div class="footer">
+    <div class="footer">
 著者名・年号など
+    </div>
 </div>
 
 </body>
 </html>
-
