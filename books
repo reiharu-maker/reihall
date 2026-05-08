@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>英国古書店風 本棚</title>
+<style>
+  body {
+    font-family: 'Times New Roman', serif;
+    background-color: #f8f5e9;
+    text-align: center;
+    padding: 40px;
+  }
+  .spine {
+    display: inline-block;
+    width: 130px;
+    height: 320px;
+    margin: 12px;
+    background: linear-gradient(180deg, #4b2e1e 0%, #3a2416 100%);
+    border-left: 10px solid #2a1a10;
+    color: #d9c27e;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-size: 18px;
+    border-radius: 6px;
+    text-align: center;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.4);
+    letter-spacing: 1px;
+  }
+  .spine a {
+    color: #d9c27e;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .spine::before {
+    content: "⚜";
+    display: block;
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+</style>
+</head>
+<body>
+
+<h1>英国古書店の本棚</h1>
+
+<div class="spine"><a href="index.html">玲はる名<br>作品集</a></div>
+<div class="spine"><a href="ReiHall.html">ReiHall</a></div>
+<div class="spine"><a href="view.html">朗読ページ</a></div>
+
+</body>
+</html>
