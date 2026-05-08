@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://reiharu-maker.github.io/reihall/</loc></url>
-  <url><loc>https://reiharu-maker.github.io/reihall/bird.html</loc></url>
-  <url><loc>https://reiharu-maker.github.io/reihall/books.html</loc></url>
-  <url><loc>https://reiharu-maker.github.io/reihall/book_pages/book1.html</loc></url>
-  <url><loc>https://reiharu-maker.github.io/reihall/book_pages/book2.html</loc></url>
+  <url>
+    <loc>https://reiharu-maker.github.io/reihall/</loc>
+  </url>
+  <url>
+    <loc>https://reiharu-maker.github.io/reihall/bird.html</loc>
+  </url>
+  <url>
+    <loc>https://reiharu-maker.github.io/reihall/books.html</loc>
+  </url>
+  <url>
+    <loc>https://reiharu-maker.github.io/reihall/book_pages/book1.html</loc>
+  </url>
+  <url>
+    <loc>https://reiharu-maker.github.io/reihall/book_pages/book2.html</loc>
+  </url>
 </urlset>
