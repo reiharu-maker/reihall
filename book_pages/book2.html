@@ -1,8 +1,83 @@
-<!-- タイトルと作者名 -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>鍵｜玲はる名</title>
+
+<style>
+body {
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+    background-color: #f7f4e9;
+    color: #333;
+    margin: 0;
+    padding: 40px 20px;
+    line-height: 1.9;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 本棚に戻るリンク */
+.backlink {
+    display: inline-block;
+    margin-bottom: 30px;
+    color: #555;
+    text-decoration: none;
+    font-size: 14px;
+}
+.backlink:hover {
+    text-decoration: underline;
+}
+
+/* タイトルと作者名 */
+.title { font-size: 28px; text-align: left; }
+.author { text-align: right; margin-bottom: 40px; }
+
+/* 段落 */
+p {
+    text-indent: 1em;
+    margin-bottom: 1.2em;
+}
+
+/* 作者紹介 */
+.profile {
+    margin-top: 60px;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.8;
+}
+
+/* ページめくり風アニメーション */
+.page {
+    animation: pageturn 0.6s ease;
+    transform-origin: left center;
+}
+
+@keyframes pageturn {
+    0% {
+        transform: rotateY(-12deg);
+        opacity: 0;
+        box-shadow: -40px 0 40px rgba(0,0,0,0.2);
+    }
+    100% {
+        transform: rotateY(0deg);
+        opacity: 1;
+        box-shadow: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<a href="../books.html" class="backlink">← 本棚に戻る</a>
+
+<div class="page">
+
 <div class="title">鍵</div>
 <div class="author">玲はる名</div>
 
-<!-- ここから本文（段落ごとに <p> を使う） -->
+<!-- ここから本文 -->
 
 <p>
 扉なき世界みだらに放たれて　排水溝の孤児
@@ -80,3 +155,8 @@
 <div class="profile">
 玲はる名（れい・はるな）／一九七三年生まれの詩人・歌人。現在「玲瓏」同人。著書に歌集「たった今覚えたものを」、同書英語版『What I've just realized』詩集『世界の終焉と美しき獣 autoinfanticide』など。個人誌「ブルートレイン」を主宰。@reiharuna
 </div>
+
+</div><!-- /.page -->
+
+</body>
+</html>
