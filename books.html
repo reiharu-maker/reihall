@@ -15,12 +15,12 @@ body {
 /* 本棚のコンテナ：Gridを使用して3列に固定 */
 .bookshelf {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3列に分割 */
-    gap: 30px 20px; /* 縦の隙間30px、横の隙間20px */
-    max-width: 600px; /* 本棚全体の最大幅（調整可） */
-    margin: 0 auto 40px; /* 中央寄せ */
-    align-items: end; /* 全ての本を下のライン（棚）に揃える */
-    justify-items: center; /* 各枠内の中央に配置 */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px 20px; 
+    max-width: 600px; 
+    margin: 0 auto 40px; 
+    align-items: end; 
+    justify-items: center; 
 }
 
 /* 通常の背表紙 */
@@ -42,29 +42,32 @@ body {
     box-shadow: 3px 3px 8px rgba(0,0,0,0.4);
     letter-spacing: 1px;
     padding: 10px 0;
-    box-sizing: border-box; /* パディングを含めたサイズ計算 */
+    box-sizing: border-box; 
 }
 
+/* 背表紙の中のリンク */
 .spine a {
     color: #d9c27e;
     text-decoration: none;
     font-weight: bold;
     display: block;
     height: 100%;
+    padding-top: 10px; /* 文字の開始位置を下げて余白を作る */
 }
 
+/* 背表紙のマーク（⚜） */
 .spine::before {
     content: "⚜";
     display: block;
     font-size: 22px;
-    margin-bottom: 10px;
-    writing-mode: horizontal-tb; /* 記号は横書きモードで正位置に */
+    margin-bottom: 25px; /* マークと文字の間隔 */
+    writing-mode: horizontal-tb;
 }
 
 /* 特別な背表紙（細い本） */
 .spine.special {
     width: 60px;
-    height: 280px; /* 少し高さを変えても、align-items: end で下は揃います */
+    height: 280px; 
     background: linear-gradient(180deg, #7a1a1a 0%, #5a1010 100%);
     border-left: 8px solid #3e0b0b;
     font-size: 15px;
@@ -74,7 +77,7 @@ body {
     color: #f0e68c;
 }
 
-/* リンクホバー時の演出（お好みで） */
+/* ホバー時の演出 */
 .spine:hover {
     filter: brightness(1.2);
     transform: translateY(-5px);
@@ -88,15 +91,12 @@ body {
 <h1>ひだまりの本棚</h1>
 
 <div class="bookshelf">
-  <!-- 1行目 -->
   <div class="spine"><a href="book_pages/book1.html">時の鐘銀行</a></div>
   <div class="spine"><a href="book_pages/book2.html">鍵</a></div>
   <div class="spine"><a href="book_pages/book3.html">Autoinfanticide<br>世界の終焉と美しき獣</a></div>
 
-  <!-- 2行目 -->
   <div class="spine"><a href="bird.html">焦れ香</a></div>
   <div class="spine special"><a href="writing.html">玲はる名作品が読める場所</a></div>
-  <!-- 3冊目に何も入れない場合は空のdivを置くか、そのまま追加していけます -->
 </div>
 
 <p><a href="index.html">← back to top</a></p>
