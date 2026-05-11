@@ -3,16 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <title>ひだまりの本棚</title>
+
 <style>
-  body {
+body {
     font-family: 'Times New Roman', serif;
     background-color: #f8f5e9;
     text-align: center;
     padding: 40px;
-  }
-  .spine {
-    display: inline-block;
-    width: 130px; /* 通常の幅 */
+}
+
+/* 本棚の並び */
+.bookshelf {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+/* 通常の背表紙 */
+.spine {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 130px;
     height: 320px;
     margin: 12px;
     background: linear-gradient(180deg, #4b2e1e 0%, #3a2416 100%);
@@ -25,37 +39,39 @@
     text-align: center;
     box-shadow: 3px 3px 8px rgba(0,0,0,0.4);
     letter-spacing: 1px;
-    vertical-align: bottom; /* 高さを揃えるため追加 */
-  }
-  .spine a {
+    vertical-align: bottom;
+}
+
+.spine a {
     color: #d9c27e;
     text-decoration: none;
     font-weight: bold;
-  }
-  .spine::before {
+}
+
+.spine::before {
     content: "⚜";
     display: block;
     font-size: 22px;
     margin-bottom: 10px;
-  }
+}
 
-  /* 「作品が読める場所」専用のスタイル */
-  .spine.special {
-    width: 60px; /* 幅を細く設定 */
-    background: linear-gradient(180deg, #7a1a1a 0%, #5a1010 100%); /* 色をワインレッド系に変更 */
+/* 特別な背表紙 */
+.spine.special {
+    width: 60px;
+    background: linear-gradient(180deg, #7a1a1a 0%, #5a1010 100%);
     border-left: 8px solid #3e0b0b;
-    font-size: 15px; /* 幅に合わせて少し文字を小さく */
-  }
-  .spine.special a {
-    color: #f0e68c; /* リンクの色も少し明るいゴールド系に */
-  }
+    font-size: 15px;
+}
+
+.spine.special a {
+    color: #f0e68c;
+}
 </style>
 </head>
+
 <body>
 
 <h1>ひだまりの本棚</h1>
-
-<!-- specialクラスを追加しました -->
 
 <div class="bookshelf">
   <div class="spine"><a href="book_pages/book1.html">時の鐘銀行</a></div>
@@ -68,6 +84,5 @@
 
 <p><a href="index.html">← back to top</a></p>
 
-  
 </body>
 </html>
