@@ -19,14 +19,14 @@ body {
     gap: 30px 20px; 
     max-width: 600px; 
     margin: 0 auto 40px; 
-    align-items: end; /* 全ての本の下ラインを揃える */
+    align-items: end;
     justify-items: center; 
 }
 
 /* 背表紙のベース */
 .spine {
     display: block;
-    writing-mode: vertical-rl; /* 縦書きモード */
+    writing-mode: vertical-rl;
     text-orientation: upright;
     text-align: center;
     color: #d9c27e;
@@ -35,15 +35,13 @@ body {
     box-shadow: 3px 3px 8px rgba(0,0,0,0.4);
     box-sizing: border-box;
     transition: 0.3s;
-    
-    /* 共通サイズ */
+
     width: 130px;
     height: 320px;
     background: linear-gradient(180deg, #4b2e1e 0%, #3a2416 100%);
     border-left: 10px solid #2a1a10;
-    
-    /* 内部の余白調整 */
-    padding: 0 10px; 
+
+    padding: 0 10px;
 }
 
 /* 背表紙内のリンクテキスト */
@@ -52,22 +50,16 @@ body {
     text-decoration: none;
     font-weight: bold;
     display: inline-block;
-    vertical-align: middle; /* マークと高さを合わせる */
     line-height: 1.2;
     letter-spacing: 0.05em;
 }
 
-/* 背表紙のマーク（⚜） */
+/* ⚜ を完全に別行にする */
 .spine::before {
     content: "⚜";
-    display: inline-block; 
+    display: block;          /* ← これで別行になる */
     font-size: 24px;
-    vertical-align: middle; /* 文字と高さを合わせる */
-    
-    /* ★ 記号と文字の「横の隙間」をここで調整します */
-    margin-left: 15px; 
-    margin-top: 0;
-    margin-bottom: 0;
+    margin: 0 auto 10px;     /* 下に余白 */
 }
 
 /* 特別な背表紙（赤・細い本） */
