@@ -12,54 +12,62 @@ body {
     padding: 40px;
 }
 
-/* 本棚のコンテナ：3列に固定し、下を揃える */
+/* 本棚のコンテナ：3列固定 */
 .bookshelf {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
     gap: 30px 20px; 
     max-width: 600px; 
     margin: 0 auto 40px; 
-    align-items: end; 
+    align-items: end; /* 全ての本の下ラインを揃える */
     justify-items: center; 
 }
 
-/* 背表紙のベース設定 */
+/* 背表紙のベース */
 .spine {
-    display: flex;
-    flex-direction: row;      /* 横並びにする */
-    justify-content: center;  /* 背表紙の中央に配置 */
-    align-items: center;      /* 上下の中央に配置 */
+    display: block;
+    writing-mode: vertical-rl; /* 縦書きモード */
+    text-orientation: upright;
+    text-align: center;
+    color: #d9c27e;
+    font-size: 18px;
+    border-radius: 6px;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.4);
+    box-sizing: border-box;
+    transition: 0.3s;
+    
+    /* 共通サイズ */
     width: 130px;
     height: 320px;
     background: linear-gradient(180deg, #4b2e1e 0%, #3a2416 100%);
     border-left: 10px solid #2a1a10;
-    color: #d9c27e;
-    writing-mode: vertical-rl; /* 縦書きモード */
-    text-orientation: upright;
-    font-size: 18px;
-    border-radius: 6px;
-    box-shadow: 3px 3px 8px rgba(0,0,0,0.4);
-    padding: 10px;
-    box-sizing: border-box;
-    transition: 0.3s;
+    
+    /* 内部の余白調整 */
+    padding: 0 10px; 
+}
+
+/* 背表紙内のリンクテキスト */
+.spine a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle; /* マークと高さを合わせる */
+    line-height: 1.2;
+    letter-spacing: 0.05em;
 }
 
 /* 背表紙のマーク（⚜） */
 .spine::before {
     content: "⚜";
-    display: block;
-    font-size: 22px;
-    /* 縦書きの「横（列）」の間隔を作る設定 */
-    margin-left: 15px; /* ★この数値を大きくすると記号と文字の隙間が広がります */
-}
-
-/* タイトル部分 */
-.spine a {
-    color: #d9c27e;
-    text-decoration: none;
-    font-weight: bold;
-    display: block;
-    line-height: 1.4;
+    display: inline-block; 
+    font-size: 24px;
+    vertical-align: middle; /* 文字と高さを合わせる */
+    
+    /* ★ 記号と文字の「横の隙間」をここで調整します */
+    margin-left: 15px; 
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 /* 特別な背表紙（赤・細い本） */
@@ -79,11 +87,6 @@ body {
 .spine:hover {
     filter: brightness(1.2);
     transform: translateY(-5px);
-}
-
-/* リンクテキストも親の色を引き継ぐ */
-.spine a:visited {
-    color: inherit;
 }
 </style>
 </head>
