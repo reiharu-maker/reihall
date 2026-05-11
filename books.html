@@ -12,7 +12,7 @@
   }
   .spine {
     display: inline-block;
-    width: 130px;
+    width: 130px; /* 通常の幅 */
     height: 320px;
     margin: 12px;
     background: linear-gradient(180deg, #4b2e1e 0%, #3a2416 100%);
@@ -25,6 +25,7 @@
     text-align: center;
     box-shadow: 3px 3px 8px rgba(0,0,0,0.4);
     letter-spacing: 1px;
+    vertical-align: bottom; /* 高さを揃えるため追加 */
   }
   .spine a {
     color: #d9c27e;
@@ -37,12 +38,26 @@
     font-size: 22px;
     margin-bottom: 10px;
   }
+
+  /* 「作品が読める場所」専用のスタイル */
+  .spine.special {
+    width: 60px; /* 幅を細く設定 */
+    background: linear-gradient(180deg, #7a1a1a 0%, #5a1010 100%); /* 色をワインレッド系に変更 */
+    border-left: 8px solid #3e0b0b;
+    font-size: 15px; /* 幅に合わせて少し文字を小さく */
+  }
+  .spine.special a {
+    color: #f0e68c; /* リンクの色も少し明るいゴールド系に */
+  }
 </style>
 </head>
 <body>
 
 <h1>ひだまりの本棚</h1>
-<div class="spine"><a href="writing.html">玲はる名作品が読める場所</a></div>
+
+<!-- specialクラスを追加しました -->
+<div class="spine special"><a href="writing.html">玲はる名作品が読める場所</a></div>
+
 <div class="spine"><a href="book_pages/book1.html">時の鐘銀行</a></div>
 <div class="spine"><a href="book_pages/book2.html">鍵</a></div>
 <div class="spine"><a href="book_pages/book3.html">Autoinfanticide<br>世界の終焉と美しき獣</a></div>
