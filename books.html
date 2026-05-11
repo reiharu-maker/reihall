@@ -12,7 +12,7 @@ body {
     padding: 40px;
 }
 
-/* 本棚のコンテナ：Gridを使用して3列に固定 */
+/* 本棚のコンテナ：3列固定 */
 .bookshelf {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
@@ -23,65 +23,65 @@ body {
     justify-items: center; 
 }
 
-/* 通常の背表紙 */
+/* 背表紙のベース */
 .spine {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;   /* 縦方向に（マーク・文字の順で）並べる */
+    align-items: center;      /* 左右中央に揃える */
+    justify-content: flex-start; /* 上詰めで配置 */
     width: 130px;
     height: 320px;
     background: linear-gradient(180deg, #4b2e1e 0%, #3a2416 100%);
     border-left: 10px solid #2a1a10;
     color: #d9c27e;
-    writing-mode: vertical-rl;
-    text-orientation: upright;
     font-size: 18px;
     border-radius: 6px;
-    text-align: center;
     box-shadow: 3px 3px 8px rgba(0,0,0,0.4);
-    letter-spacing: 1px;
-    padding: 10px 0;
-    box-sizing: border-box; 
+    padding: 20px 5px;        /* 上下の余白 */
+    box-sizing: border-box;
+    transition: 0.3s;
 }
 
-/* 背表紙の中のリンク */
+/* 背表紙のマーク（⚜）の設定 */
+.spine::before {
+    content: "⚜";
+    display: block;
+    font-size: 24px;
+    margin-bottom: 35px;      /* ★ここを大きくすると文字との間隔が空きます */
+    line-height: 1;
+    writing-mode: horizontal-tb; /* マークは横書きモードで正位置に */
+}
+
+/* タイトル部分の設定 */
 .spine a {
     color: #d9c27e;
     text-decoration: none;
     font-weight: bold;
-    display: block;
-    height: 100%;
-    padding-top: 10px; /* 文字の開始位置を下げて余白を作る */
+    writing-mode: vertical-rl;  /* 文字だけを縦書きにする */
+    text-orientation: upright;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    height: auto;
 }
 
-/* 背表紙のマーク（⚜） */
-.spine::before {
-    content: "⚜";
-    display: block;
-    font-size: 22px;
-    margin-bottom: 25px; /* マークと文字の間隔 */
-    writing-mode: horizontal-tb;
-}
-
-/* 特別な背表紙（細い本） */
+/* 特別な背表紙（赤・細い本） */
 .spine.special {
     width: 60px;
-    height: 280px; 
+    height: 280px;
     background: linear-gradient(180deg, #7a1a1a 0%, #5a1010 100%);
     border-left: 8px solid #3e0b0b;
-    font-size: 15px;
 }
 
 .spine.special a {
     color: #f0e68c;
+    font-size: 15px;
 }
 
-/* ホバー時の演出 */
+/* ホバー演出 */
 .spine:hover {
     filter: brightness(1.2);
     transform: translateY(-5px);
-    transition: 0.3s;
 }
 </style>
 </head>
