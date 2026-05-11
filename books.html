@@ -12,7 +12,7 @@ body {
     padding: 40px;
 }
 
-/* 本棚のコンテナ：3列固定 */
+/* 本棚のコンテナ：3列に固定し、下を揃える */
 .bookshelf {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
@@ -23,46 +23,43 @@ body {
     justify-items: center; 
 }
 
-/* 背表紙のベース */
+/* 背表紙のベース設定 */
 .spine {
     display: flex;
-    flex-direction: column;   /* 縦方向に（マーク・文字の順で）並べる */
-    align-items: center;      /* 左右中央に揃える */
-    justify-content: flex-start; /* 上詰めで配置 */
+    flex-direction: row;      /* 横並びにする */
+    justify-content: center;  /* 背表紙の中央に配置 */
+    align-items: center;      /* 上下の中央に配置 */
     width: 130px;
     height: 320px;
     background: linear-gradient(180deg, #4b2e1e 0%, #3a2416 100%);
     border-left: 10px solid #2a1a10;
     color: #d9c27e;
+    writing-mode: vertical-rl; /* 縦書きモード */
+    text-orientation: upright;
     font-size: 18px;
     border-radius: 6px;
     box-shadow: 3px 3px 8px rgba(0,0,0,0.4);
-    padding: 20px 5px;        /* 上下の余白 */
+    padding: 10px;
     box-sizing: border-box;
     transition: 0.3s;
 }
 
-/* 背表紙のマーク（⚜）の設定 */
+/* 背表紙のマーク（⚜） */
 .spine::before {
     content: "⚜";
     display: block;
-    font-size: 24px;
-    margin-bottom: 35px;      /* ★ここを大きくすると文字との間隔が空きます */
-    line-height: 1;
-    writing-mode: horizontal-tb; /* マークは横書きモードで正位置に */
+    font-size: 22px;
+    /* 縦書きの「横（列）」の間隔を作る設定 */
+    margin-left: 15px; /* ★この数値を大きくすると記号と文字の隙間が広がります */
 }
 
-/* タイトル部分の設定 */
+/* タイトル部分 */
 .spine a {
     color: #d9c27e;
     text-decoration: none;
     font-weight: bold;
-    writing-mode: vertical-rl;  /* 文字だけを縦書きにする */
-    text-orientation: upright;
-    letter-spacing: 0.1em;
-    display: flex;
-    align-items: center;
-    height: auto;
+    display: block;
+    line-height: 1.4;
 }
 
 /* 特別な背表紙（赤・細い本） */
@@ -82,6 +79,11 @@ body {
 .spine:hover {
     filter: brightness(1.2);
     transform: translateY(-5px);
+}
+
+/* リンクテキストも親の色を引き継ぐ */
+.spine a:visited {
+    color: inherit;
 }
 </style>
 </head>
