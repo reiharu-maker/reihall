@@ -2,9 +2,15 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>詩篇Ⅰ｜玲はる名</title>
 
 <style>
+/* スムーズスクロール設定 */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
     background-color: #f7f4e9;
@@ -21,50 +27,118 @@ body {
 .backlink {
     display: inline-block;
     margin-bottom: 30px;
-    color: #555;
+    color: #777;
     text-decoration: none;
     font-size: 14px;
+    transition: color 0.3s;
 }
 .backlink:hover {
+    color: #000;
     text-decoration: underline;
 }
 
-/* タイトルと作者名 */
-.title { font-size: 28px; text-align: left; }
-.author { text-align: right; margin-bottom: 40px; }
+/* ヘッダーエリア */
+header {
+    margin-bottom: 60px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+}
+.title { font-size: 32px; font-weight: bold; margin-bottom: 10px; }
+.author { text-align: right; font-size: 18px; color: #555; }
 
-/* 段落 */
+/* 目次（Table of Contents） */
+.toc {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid #e0e0e0;
+    padding: 20px;
+    margin-bottom: 80px;
+    border-radius: 4px;
+}
+.toc-title {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: block;
+    text-align: center;
+    border-bottom: 1px dotted #ccc;
+    padding-bottom: 5px;
+}
+.toc ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.toc li {
+    margin: 8px 0;
+}
+.toc a {
+    color: #555;
+    text-decoration: none;
+    font-size: 15px;
+}
+.toc a:hover {
+    color: #a0522d; /* 煉瓦色 */
+    text-decoration: underline;
+}
+
+/* 各詩のセクション（記事風） */
+.poem-post {
+    background-color: transparent;
+    margin-bottom: 100px; /* 詩と詩の間隔を広く */
+    padding-bottom: 40px;
+    border-bottom: 1px solid #e0e0e0;
+}
+.poem-post:last-of-type {
+    border-bottom: none;
+}
+
+.poem-header {
+    margin-bottom: 30px;
+}
+.poem-title {
+    font-size: 24px;
+    margin: 0;
+    color: #222;
+}
+.poem-date {
+    font-size: 13px;
+    color: #999;
+    display: block;
+    margin-top: 5px;
+}
+
+/* 本文 */
 p {
     text-indent: 1em;
     margin-bottom: 1.2em;
     white-space: pre-wrap;
+    letter-spacing: 0.05em;
 }
 
 /* 作者紹介 */
 .profile {
-    margin-top: 60px;
+    margin-top: 80px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.4);
     font-size: 14px;
     color: #555;
     line-height: 1.8;
+    border-radius: 8px;
 }
 
-/* ページめくり風アニメーション */
+/* フェードインアニメーション */
 .page {
-    animation: pageturn 0.6s ease;
-    transform-origin: left center;
+    animation: fadeIn 1s ease-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes pageturn {
-    0% {
-        transform: rotateY(-12deg);
-        opacity: 0;
-        box-shadow: -40px 0 40px rgba(0,0,0,0.2);
-    }
-    100% {
-        transform: rotateY(0deg);
-        opacity: 1;
-        box-shadow: none;
-    }
+/* スマホ対応 */
+@media (max-width: 480px) {
+    body { padding: 20px 15px; }
+    .title { font-size: 24px; }
 }
 </style>
 </head>
@@ -75,13 +149,30 @@ p {
 
 <div class="page">
 
-<div class="title">詩篇Ⅰ</div>
-<div class="author">玲はる名</div>
+<header>
+    <div class="title">詩篇Ⅰ</div>
+    <div class="author">玲はる名</div>
+</header>
+
+<!-- 目次 -->
+<nav class="toc">
+    <span class="toc-title">目次</span>
+    <ul>
+        <li><a href="#poem1">杜鵑花</a></li>
+        <li><a href="#poem2">夕凪</a></li>
+        <li><a href="#poem3">うたたね</a></li>
+        <li><a href="#poem4">ゼリー</a></li>
+    </ul>
+</nav>
 
 <!-- ここから本文 -->
 
-<h2>杜鵑花（2009/06/06）</h2>
-<p>
+<article class="poem-post" id="poem1">
+    <div class="poem-header">
+        <h2 class="poem-title">杜鵑花</h2>
+        <span class="poem-date">2009/06/06</span>
+    </div>
+    <p>
 つくよみの  
 みことの空に  
 映えるとき  
@@ -121,10 +212,15 @@ p {
 いるだろう  
 言葉は人の  
 なにだろう
-</p>
+    </p>
+</article>
 
-<h2>夕凪（2009/06/21）</h2>
-<p>
+<article class="poem-post" id="poem2">
+    <div class="poem-header">
+        <h2 class="poem-title">夕凪</h2>
+        <span class="poem-date">2009/06/21</span>
+    </div>
+    <p>
 水の鼓動は  
 触れている  
 きみのこころを  
@@ -168,10 +264,15 @@ p {
 一瞬（ひとたび）に  
 求められては  
 消えてゆく
-</p>
+    </p>
+</article>
 
-<h2>うたたね（2009/06/26）</h2>
-<p>
+<article class="poem-post" id="poem3">
+    <div class="poem-header">
+        <h2 class="poem-title">うたたね</h2>
+        <span class="poem-date">2009/06/26</span>
+    </div>
+    <p>
 花に喩えるならば  
 
 僕の身体は存在であり  
@@ -187,10 +288,15 @@ p {
 「やっとうまれてきたのにね」  
 
 母は人の子に言う
-</p>
+    </p>
+</article>
 
-<h2>ゼリー（2009/07/12）</h2>
-<p>
+<article class="poem-post" id="poem4">
+    <div class="poem-header">
+        <h2 class="poem-title">ゼリー</h2>
+        <span class="poem-date">2009/07/12</span>
+    </div>
+    <p>
 ねえ、窓をあけて  
 
 ほら、鶏ガラが飛んでる  
@@ -223,12 +329,14 @@ p {
 
 こんな世界  
 捨ててしまえばいいのにね
-</p>
+    </p>
+</article>
 
 <!-- 作者紹介 -->
-<div class="profile">
-玲はる名（れい・はるな）／一九七三年生まれの詩人・歌人。「短歌21世紀」「玲瓏」参加を経て現在フリー。著書に歌集「たった今覚えたものを」、同書英語版『What I've just realized』詩集『世界の終焉と美しき獣 autoinfanticide』など。個人誌「ブルートレイン」を主宰。
-</div>
+<footer class="profile">
+    <strong>玲はる名（れい・はるな）</strong><br>
+    一九七三年生まれの詩人・歌人。「短歌21世紀」「玲瓏」参加を経て現在フリー。著書に歌集「たった今覚えたものを」、同書英語版『What I've just realized』詩集『世界の終焉と美しき獣 autoinfanticide』など。個人誌「ブルートレイン」を主宰。
+</footer>
 
 </div><!-- /.page -->
 
